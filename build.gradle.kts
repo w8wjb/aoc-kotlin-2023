@@ -13,3 +13,8 @@ tasks {
         gradleVersion = "8.5"
     }
 }
+
+dependencies {
+    // Other dependencies.
+    implementation(kotlin("test"))
+}
