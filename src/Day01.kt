@@ -68,7 +68,6 @@ fun main() {
         return calibrationSum
     }
 
-    // test if implementation meets criteria from the description, like:
     val testInput1 = readInput("samples/day1.1.txt")
     assertEquals(142, part1(testInput1))
 
