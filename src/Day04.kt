@@ -5,15 +5,14 @@ import kotlin.test.assertEquals
 fun main() {
 
     data class Card(val line: String) {
-        val winningNumbers = mutableSetOf<String>()
-        val scratched = mutableSetOf<String>()
         val matches: Int
         var copies = 1
 
         init {
-            val (_, winningSection, scratchedSection) = line.split(":", "|").map { it.trim() }
-            winningNumbers.addAll(winningSection.split("\\s+".toRegex()))
-            scratched.addAll(scratchedSection.split("\\s+".toRegex()))
+            val (winningNumbers, scratched) = line.split(":", "|")
+                .drop(1)
+                .map(String::trim)
+                .map { it.split("\\s+".toRegex()).toSet() }
             matches = (winningNumbers intersect scratched).size
         }
 
