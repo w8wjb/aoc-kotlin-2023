@@ -11,10 +11,7 @@ fun main() {
     fun part1(input: List<Race>): Long {
 
 
-        var waysToWin: Long = 1
-
-        for (race in input) {
-
+        return input.fold(1L) { mul, race ->
             val b = race.time.toDouble()
             val c = race.distance.toDouble()
 
@@ -22,11 +19,9 @@ fun main() {
             val x2 = (b + sqrt(b.pow(2) - (4 * c))) / 2
             val span = ceil(x2) - floor(x1) - 1
 
-            waysToWin *= span.toLong()
-
+            mul * span.toLong()
         }
 
-        return waysToWin
     }
 
 
